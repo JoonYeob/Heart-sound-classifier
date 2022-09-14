@@ -5,7 +5,7 @@ Heart sound classifier using the vision transformer model which is code for the 
 
   pip install requirements.txt
 
-## Put your data in training_data folder and run next code
+### Put your data in training_data folder and run next code
 
   python train_model.py training_data model
 
