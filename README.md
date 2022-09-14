@@ -2,20 +2,27 @@
 Heart sound classifier using the vision transformer model which is code for the George B. Moody PhysioNet Challenge 2022
 
 # Run code in python
+
 ```
   pip install requirements.txt
 ```
-### Put your data in training_data folder and run next code
+### Put your training data in training_data folder and run next code.
 ```
   python train_model.py training_data model
+```
+### Put your test data in test_data folder. 
+### The model folder will contain a model.pt file.
+
+```
   python run_model.py model test_data test_outputs
   python evaluate_model.py test_data test_outputs
 ```
+### You can see results.
 
 
-#Run code in docker
+# Run code in docker
 
-###This script is from https://github.com/physionetchallenges/python-classifier-2022
+### This script is from https://github.com/physionetchallenges/python-classifier-2022
 
 1. Create a folder `example` in your home directory with several subfolders.
 
