@@ -57,7 +57,7 @@ def train_challenge_model(data_folder, model_folder, verbose):
     if verbose >= 1:
         print('Extracting features and labels from the Challenge data...')
     
-    # wav file to npy, 224000 frame보다 크면 초과하는 만큼 앞 뒤 동일하게 제거, 작으면 그대로 넘겨서 이미지 만들때 0 padding
+    # wav file to npy, if it is larger than 224000 frame, remove the front and back equally as much as it exceeds, if it is smaller, pass it as it is and create an image 0 padding
     pp_folder = "trimmed_npy"
     classes = ['Absent','Present','Unknown']  
     classes2 = ['Abnormal', 'Normal']
@@ -329,12 +329,10 @@ def train_challenge_model(data_folder, model_folder, verbose):
         del ds2
         del prepared_ds2
         
-        if i==0:
-            #첫번째 fold의 경우 모델을 무조건 저장, 그때 val loss 저장.
+        if i==0:            
             torch.save(model2,'kfoldoutputmodel.pt')
             final_loss_2=metrics2['eval_loss']
-        else:
-            #나머지 fold의 경우 현재 모델의 val loss가 저장된 loss보다 작을 경우에만 덧씌워 저장 (모델 선언을 매번 새로해야 메모리가 초기화되므로), 이때 final_loss는 현재 로스.
+        else:            
             if metrics2['eval_loss']< final_loss_2:
                 torch.save(model2,'kfoldoutputmodel.pt')
                 final_loss_2 = metrics2['eval_loss']
