@@ -272,7 +272,7 @@ def make_image_folders_10_fold(train_folder_list, val_folder_list, otrain_folder
         os.makedirs(now_oval_folder+'/Abnormal', exist_ok=True)
         os.makedirs(now_oval_folder+'/Normal', exist_ok=True)
         
-        #전체 데이터를 해당 fold의 train folder에 전체 복사하고, val set에 해당되는 파일들의 경우 augmentation된거는 지우고, 아닌경우만 val 폴더로 이동.
+        # Copies all data to the train folder of the corresponding fold, and in the case of files corresponding to the val set, the augmentation is deleted, and only if it is not, it is moved to the val folder.
         
         val_unique=unique_list[number]
         train_unique = list(set(unique_ids) - set(val_unique))
