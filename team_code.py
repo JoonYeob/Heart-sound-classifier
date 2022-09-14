@@ -228,11 +228,11 @@ def train_challenge_model(data_folder, model_folder, verbose):
         del prepared_ds
         
         if i==0:
-            #첫번째 fold의 경우 모델을 무조건 저장, 그때 val loss 저장.
+            # For the first fold, unconditionally save the model and the validation loss.
             torch.save(model,'kfoldmodel.pt')
             final_loss=metrics['eval_loss']
         else:
-            #나머지 fold의 경우 현재 모델의 val loss가 저장된 loss보다 작을 경우에만 덧씌워 저장 (모델 선언을 매번 새로해야 메모리가 초기화되므로), 이때 final_loss는 현재 로스.
+            #For the rest of the fold, it is overwritten only when the val loss of the current model is smaller than the stored loss (because the memory is initialized when the model declaration is renewed every time), in this case final_loss is the current loss.
             if metrics['eval_loss']< final_loss:
                 torch.save(model,'kfoldmodel.pt')
                 final_loss = metrics['eval_loss']
@@ -363,7 +363,6 @@ def load_challenge_model(model_folder, verbose):
 # arguments of this function.
 def run_challenge_model(model, data, recordings, verbose):
     
-    #meta data를 읽는것은 문제되지않으나, transform할때 label encoding, minmax scaler를 사용했었어서 이 정보를 저장하고 불러오지 않으면 안될듯.
     pred_arr, pred_arr2 = inference_all(model, './', recordings, data)
     labels, probabilities = inferenced_results(pred_arr, pred_arr2)
         
