@@ -97,7 +97,7 @@ class TrainAugmentation():
         plt.savefig(output_npy_3)
         plt.close()
 
-        #Sx_log 일반버전, freq_mask 주파수 마스킹버전
+        #frequency masking
         '''
         freq_mask = tfio.audio.time_mask(Basic, param=100).numpy()
         Spec_image=plt.subplot(1,1,1)
@@ -181,7 +181,8 @@ class TrainAugmentation():
     def process(self):
         for f in glob.glob(self.data_folder + "/*.npy"):
             self.__process_npy(f)
-                      
+            
+#The code below is deprecated.                   
 class ValGeneratorIm():
     def __init__(self, data_folder, output_folder, output_folder2, list_ids, labels, labels2, classes=[], classes2=[]):
         self.data_folder = data_folder
