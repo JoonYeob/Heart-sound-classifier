@@ -12,8 +12,11 @@ Heart sound classifier using the vision transformer model which is code for the 
   python evaluate_model.py test_data test_outputs
 ```
 
+
 #Run code in docker
+
 ###This script is from https://github.com/physionetchallenges/python-classifier-2022
+
 1. Create a folder `example` in your home directory with several subfolders.
 
         user@computer:~$ cd ~/
