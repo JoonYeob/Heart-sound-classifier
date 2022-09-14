@@ -1,5 +1,5 @@
 # Heart-sound-classifier
-Heart sound classifier using the vision transformer model which is code for the George B. Moody PhysioNet Challenge 2022
+Heart sound classifier using the vision transformer model which is code for the George B. Moody PhysioNet Challenge 2022.
 This code is one of the version using a full-length sound, not final code.
 
 # Run code in python
