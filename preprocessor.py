@@ -63,7 +63,7 @@ class Preprocessor():
             np.save(output_npy, trimmed)
         
     def __process_txt(self, txt_file):
-        #root:경로, ext:확장자, dir:디렉토리
+        #root:path, ext:extension, dir:directory
         root, ext = os.path.splitext(txt_file)
         ID=root.split('/')[-1]
         dirs = "/".join(root.split("/")[:-1])
