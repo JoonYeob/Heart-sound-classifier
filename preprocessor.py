@@ -26,7 +26,7 @@ class Preprocessor():
         self.Pregs={}
         
     def __process_wav(self, wav_file, murmur, outcome, age, sex, height, weight, preg):   
-        #root:경로, ext:확장자, dir:디렉토리
+        #root:path, ext:extension, dir:directory
         root, ext = os.path.splitext(wav_file)
         ID=root.split('/')[-1]
         dirs = "/".join(root.split("/")[:-1])
@@ -39,7 +39,7 @@ class Preprocessor():
             frame_starts = int((len(recording)-self.max_length)/2)
             frame_ends = int((len(recording)-self.max_length)/2) + self.max_length   
             trimmed = recording[frame_starts:frame_ends]
-        else:
+        else:            
             #trimmed = extend_ts(recording, length = self.max_length)
             trimmed = recording
             
