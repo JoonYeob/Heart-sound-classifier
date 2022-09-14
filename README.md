@@ -32,7 +32,7 @@ This code is one of the version using a full-length sound, not final code.
         user@computer:~$ cd example
         user@computer:~/example$ mkdir training_data test_data model test_outputs
 
-2. Download the training data from the [Challenge website](https://physionetchallenges.org/2022). Deviding them training data in `training_data` and test_data in `test_data`. 
+2. Download the training data from the [Challenge website](https://physionetchallenges.org/2022). Dividing them training data in `training_data` and test_data in `test_data`. 
 
 3. Download or clone this repository in your terminal.
 
